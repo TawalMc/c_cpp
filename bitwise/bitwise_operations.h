@@ -38,7 +38,8 @@ uint8_t get_nth_bit(uint8_t num, uint8_t n)
  * @brief 4. Write a C program to set nth bit of a number.
  *
  */
-uint8_t set_nth_bit(uint8_t num, uint8_t n)
+uint8_t set_nth_bit(uint8_t *num, uint8_t n)
 {
-	
+	uint8_t mask = 1 << n;
+	*num |= mask;
 }

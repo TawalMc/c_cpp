@@ -13,8 +13,8 @@ int main(void)
 	printf("All assertions for 'is_lsb_set' passed successfully\n");
 
 	// 2. is_msb_set:
-	uint8_t num3 = 137; // 0x89 = 0b1000 1001 (MSB set)
-	uint8_t num4 = 9;		// 0x09 = 0b0000 1001 (MSB not set)
+	uint8_t num3 = 137; // 0x89 = 0b1000 1001
+	uint8_t num4 = 9;		// 0x09 = 0b0000 1001
 	assert(is_msb_set(num3) == true);
 	assert(is_msb_set(num4) == false);
 	printf("All assertions for 'is_msb_set' passed successfully\n");
@@ -23,6 +23,15 @@ int main(void)
 	assert(get_nth_bit(num3, 3) == 1);
 	assert(get_nth_bit(num3, 2) == 0);
 	printf("All assertions for 'get_nth_bit' passed successfully\n");
+
+	// 4. set_nth_bit
+	uint8_t num5 = 137;		 // 0x89 = 0b1000 1001
+	uint8_t num6 = 9;			 // 0x09 = 0b0000 1001
+	set_nth_bit(&num5, 2); // 141 = 0x8D = 0b1000 1101
+	set_nth_bit(&num6, 7); // 137 = 0x89 = 0b1000 1001
+	assert(get_nth_bit(num5, 2) == 1);
+	assert(num6 == 137);
+	printf("All assertions for 'set_nth_bit' passed successfully\n");
 
 	return 0;
 }
