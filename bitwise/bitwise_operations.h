@@ -43,3 +43,12 @@ uint8_t set_nth_bit(uint8_t *num, uint8_t n)
 	uint8_t mask = 1 << n;
 	*num |= mask;
 }
+
+/**
+ * @brief 5. Write a C program to clear nth bit of a number.
+ *
+ */
+uint8_t clear_nth_bit(uint8_t *num, uint8_t n)
+{
+	
+}

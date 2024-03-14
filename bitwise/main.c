@@ -33,5 +33,14 @@ int main(void)
 	assert(num6 == 137);
 	printf("All assertions for 'set_nth_bit' passed successfully\n");
 
+	// 5. clear_nth_bit
+	uint8_t num7 = 137;		 // 0x89 = 0b1000 1001
+	uint8_t num8 = 9;			 // 0x09 = 0b0000 1001
+	clear_nth_bit(&num7, 7); // 9 = 0x09 = 0b0000 1001
+	clear_nth_bit(&num8, 3); // 1 = 0x01 = 0b0000 0001
+	assert(get_nth_bit(num7, 7) == 0);
+	assert(num8 == 1);
+	printf("All assertions for 'clear_nth_bit' passed successfully\n");
+
 	return 0;
 }
