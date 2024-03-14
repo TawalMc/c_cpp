@@ -10,18 +10,18 @@
  * @brief 1. Write a C program to check Least Significant Bit (LSB) of a number is set or not.
  *
  */
-bool is_lsb_set(uint8_t n)
+bool is_lsb_set(uint8_t num)
 {
-	return (n & BIT_MASK_LSB) == 1;
+	return (num & BIT_MASK_LSB) == 1;
 }
 
 /**
  * @brief 2. Write a C program to check Most Significant Bit (MSB) of a number is set or not.
  *
  */
-bool is_msb_set(uint8_t n)
+bool is_msb_set(uint8_t num)
 {
-	return ((n & BIT_MASK_MSB) >> (BIT_SIZE - 1)) == 1; // (n & BIT_MASK_MSB) == BIT_MASK_MSB
+	return ((num & BIT_MASK_MSB) >> (BIT_SIZE - 1)) == 1; // (n & BIT_MASK_MSB) == BIT_MASK_MSB
 }
 
 /**
@@ -38,7 +38,7 @@ uint8_t get_nth_bit(uint8_t num, uint8_t n)
  * @brief 4. Write a C program to set nth bit of a number.
  *
  */
-uint8_t set_nth_bit(uint8_t *num, uint8_t n)
+void set_nth_bit(uint8_t *num, uint8_t n)
 {
 	uint8_t mask = 1 << n;
 	*num |= mask;
@@ -48,7 +48,32 @@ uint8_t set_nth_bit(uint8_t *num, uint8_t n)
  * @brief 5. Write a C program to clear nth bit of a number.
  *
  */
-uint8_t clear_nth_bit(uint8_t *num, uint8_t n)
+void clear_nth_bit(uint8_t *num, uint8_t n)
 {
-	
+	uint8_t mask = ~(1 << n);
+	*num &= mask;
+}
+
+/**
+ * @brief 6. Write a C program to toggle nth bit of a number.
+ *
+ */
+void toggle_nth_bit(uint8_t *num, uint8_t n)
+{
+	uint8_t mask = 1 << n;
+	*num ^= mask;
+}
+
+/**
+ * @brief 7. Write a C program to get highest set bit of a number.
+ *
+ */
+
+/**
+ * @brief 16. Write a C program to check whether a number is even or odd using bitwise operator.
+ *
+ */
+bool is_even(uint8_t num)
+{
+	return !is_lsb_set(num);
 }
