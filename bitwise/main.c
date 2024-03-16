@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <assert.h>
+#include <stdlib.h>
+#include <string.h>
+
 #include "bitwise_operations.h"
 
 int main(void)
@@ -50,11 +53,25 @@ int main(void)
 	assert(get_nth_bit(num9, 7) == 1);
 	printf("All assertions for 'toggle_nth_bit' passed successfully\n");
 
+	// 14. dec_to_bin
+	uint8_t num15 = 185; // 0x85 = 0b1011 1001
+	char *bin_string = (char *)malloc(9);
+	if (bin_string)
+	{
+		// dec_to_bin(num15, bin_string);
+		dec_to_full_bin(num15, bin_string);
+		printf("bin: %s\n", bin_string);
+		bin_string[9] = '\0';
+		assert(strncmp(bin_string, "10111001", 8) == 0);
+		free(bin_string);
+	}
+	printf("All assertions for 'dec_to_bin' passed successfully\n");
+
 	// 16. is_even
-	uint8_t num10 = 5; // 0x5 = 0000 0101 (LSB set)
-	uint8_t num11 = 8; // 0x8 = 0000 1000 (LSB not set)
-	assert(!is_even(num10));
-	assert(is_even(num11));
+	uint8_t num19 = 5; // 0x5 = 0000 0101 (LSB set)
+	uint8_t num20 = 8; // 0x8 = 0000 1000 (LSB not set)
+	assert(!is_even(num19));
+	assert(is_even(num20));
 	printf("All assertions for 'is_even' passed successfully\n");
 
 	return 0;

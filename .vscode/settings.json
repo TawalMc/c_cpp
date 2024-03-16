@@ -3,7 +3,8 @@
 		"exercises.h": "c",
 		"types.h": "c",
 		"wordsize.h": "c",
-		"features.h": "c"
+		"features.h": "c",
+		"stdlib.h": "c"
 	}
 	
 }

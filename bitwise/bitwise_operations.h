@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include <string.h>
 #include <stdbool.h>
 
 #define BIT_SIZE 8
@@ -76,4 +77,30 @@ void toggle_nth_bit(uint8_t *num, uint8_t n)
 bool is_even(uint8_t num)
 {
 	return !is_lsb_set(num);
+}
+
+/**
+ * @brief 14. Write a C program to convert decimal to binary number system using bitwise operator.
+ *
+ */
+void dec_to_bin(uint8_t num, char *bin)
+{
+	if (num >> 1)
+	{
+		dec_to_bin(num >> 1, bin);
+	}
+	strcat(bin, num & 0x01 == 1 ? "1" : "0");
+}
+
+/**
+ * @brief 14. Write a C program to convert decimal to binary number system using bitwise operator.
+ *
+ */
+void dec_to_full_bin(uint8_t num, char *bin)
+{
+	for (size_t i = 0; i <= BIT_SIZE - 1; i++)
+	{
+		uint8_t bit = get_nth_bit(num, BIT_SIZE - 1 - i);
+		strcat(bin, bit == 1 ? "1" : "0");
+	}
 }
