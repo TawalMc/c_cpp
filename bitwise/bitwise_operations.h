@@ -70,13 +70,32 @@ void toggle_nth_bit(uint8_t *num, uint8_t n)
  *
  */
 
+int8_t get_highest_set_bit_pos(uint8_t num)
+{
+	for (size_t i = 0; i <= BIT_SIZE - 1; i++)
+	{
+		uint8_t pos = BIT_SIZE - 1 - i;
+		uint8_t bit = get_nth_bit(num, pos);
+		if (bit == 1)
+			return pos;
+	}
+	return -1;
+}
+
 /**
- * @brief 16. Write a C program to check whether a number is even or odd using bitwise operator.
+ * @brief 8. Write a C program to get lowest set bit of a number.
  *
  */
-bool is_even(uint8_t num)
+
+int8_t get_lowest_set_bit_pos(uint8_t num)
 {
-	return !is_lsb_set(num);
+	for (size_t i = 0; i <= BIT_SIZE - 1; i++)
+	{
+		uint8_t bit = get_nth_bit(num, i);
+		if (bit == 1)
+			return i;
+	}
+	return -1;
 }
 
 /**
@@ -103,4 +122,13 @@ void dec_to_full_bin(uint8_t num, char *bin)
 		uint8_t bit = get_nth_bit(num, BIT_SIZE - 1 - i);
 		strcat(bin, bit == 1 ? "1" : "0");
 	}
+}
+
+/**
+ * @brief 16. Write a C program to check whether a number is even or odd using bitwise operator.
+ *
+ */
+bool is_even(uint8_t num)
+{
+	return !is_lsb_set(num);
 }
