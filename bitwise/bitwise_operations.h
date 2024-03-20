@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdbool.h>
+#include <assert.h>
 
 #define BIT_SIZE 8
 #define BIT_MASK_LSB 0x01
@@ -96,6 +97,62 @@ int8_t get_lowest_set_bit_pos(uint8_t num)
 			return i;
 	}
 	return -1;
+}
+
+/**
+ * @brief 9. Write a C program to count trailing zeros in a binary number.
+ *
+ */
+uint8_t count_trailing_zeros(uint8_t num)
+{
+	uint8_t count = 0;
+	for (size_t i = 0; i <= BIT_SIZE - 1; i++)
+	{
+		if (get_nth_bit(num, i) == 0)
+		{
+			count++;
+		}
+		else
+			return count;
+	}
+	return count;
+}
+
+/**
+ * @brief 10. Write a C program to count leading zeros in a binary number.
+ *
+ */
+uint8_t count_leading_zeros(uint8_t num)
+{
+	uint8_t count = 0;
+	for (size_t i = 0; i <= BIT_SIZE - 1; i++)
+	{
+		if (get_nth_bit(num, BIT_SIZE - 1 - i) == 0)
+		{
+			count++;
+		}
+		else
+			return count;
+	}
+	return count;
+}
+
+/**
+ * @brief 12. Write a C program to count total zeros and ones in a binary number.
+ *
+ */
+uint8_t count_zeros_or_ones(uint8_t num, uint8_t value_to_count)
+{
+	assert(value_to_count == 1 || value_to_count == 0); // to remove
+	uint8_t count = 0;
+	for (size_t i = 0; i <= BIT_SIZE - 1; i++)
+	{
+		if (get_nth_bit(num, BIT_SIZE - 1) == value_to_count)
+		{
+			count++;
+		}
+	}
+	return count;
 }
 
 /**
